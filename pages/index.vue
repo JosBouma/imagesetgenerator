@@ -2,6 +2,14 @@
   <div class="container">
     <h1>Image set generator</h1>
     <form action="">
+      <upload-drag-drop />
+      <upload-button />
+      <a class="download-button" :class="{ show: zipURL !== '' }" :href="zipURL" @click="handleDownload">
+        <span>Generate / download ZIP</span>
+        <img v-if="generating" src="~assets/svg/spinner-solid.svg" alt="Loading" class="generating" />
+        <img v-if="zipURL !==''" src="~assets/svg/download-solid.svg" alt="Download"/>
+        <img v-if="!generating && zipURL ===''" src="~assets/svg/play-circle-solid.svg" alt="Generate" />
+      </a>
       <fieldset class="user-input">
         <label>
           <span>Maximum width</span>
@@ -50,14 +58,6 @@
           />
         </Label>
       </fieldset>
-      <upload-drag-drop />
-      <upload-button />
-      <a class="download-button" :class="{ show: zipURL !== '' }" :href="zipURL" @click="handleDownload">
-        <span>Generate / download ZIP</span>
-        <img v-if="generating" src="~assets/svg/spinner-solid.svg" alt="Loading" class="generating" />
-        <img v-if="zipURL !==''" src="~assets/svg/download-solid.svg" alt="Download"/>
-        <img v-if="!generating && zipURL ===''" src="~assets/svg/play-circle-solid.svg" alt="Generate" />
-      </a>
     </form>
     <picture-pre />
     <p>Current image</p>
