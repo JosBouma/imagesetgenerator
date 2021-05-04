@@ -93,6 +93,7 @@ export const mutations = {
   setUpload(state, upload) {
     state.upload = upload;
     URL.revokeObjectURL(state.zipURL);
+    URL.revokeObjectURL(state.objectURL);
     state.zipURL = "";
     state.objectURL = URL.createObjectURL(upload);
   },

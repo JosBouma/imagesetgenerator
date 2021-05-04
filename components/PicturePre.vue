@@ -3,7 +3,7 @@
 &lt;picture&gt;
   &lt;source srcset=&quot;{{ setSrcWebp }}&quot; type=&quot;image/webp&quot;&gt;
   &lt;source srcset=&quot;{{ setSrcJpeg }}&quot; type=&quot;image/jpeg&quot;&gt;
-  &lt;img alt=&quot;&quot; loading=&quot;lazy&quot; width=&quot;{{ imgWidth }}&quot; height=&quot;{{ imgHeight }}&quot; sizes=&quot;(max-width: {{ maxWidth }}px) 100vw, {{ maxWidth }}px&quot; src=&quot;{{ folderPrefix }}{{ filePrefix }}{{ imageCount }}.jpg&quot;&gt;
+  &lt;img alt=&quot;&quot; loading=&quot;lazy&quot; width=&quot;{{ imgWidth }}&quot; height=&quot;{{ imgHeight() }}&quot; sizes=&quot;(max-width: {{ maxWidth }}px) 100vw, {{ maxWidth }}px&quot; src=&quot;{{ folderPrefix }}{{ filePrefix }}{{ imageCount }}.jpg&quot;&gt;
 &lt;/picture&gt;
   </pre>
 </template>
@@ -15,9 +15,9 @@ export default Vue.extend({
     imgWidth(): number {
       return this.$store.state.maxWidth;
     },
-    imgHeight(): number {
-      return this.$store.state.maxHeight;
-    },
+    // imgHeight(): number {
+    //   return this.$store.state.maxHeight;
+    // },
     maxWidth(): number {
       return this.$store.state.maxWidth;
     },
@@ -48,6 +48,9 @@ export default Vue.extend({
       }
       return ret.join(",");
     },
+    imgHeight() {
+      return this.$store.state.maxHeight;
+    }
   },
   // mounted() {
   //   this.$store.commit("setPictureElement", this.$el.textContent);
