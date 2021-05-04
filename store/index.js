@@ -68,6 +68,7 @@ export const mutations = {
   },
   setMaxWidth(state, maxWidth) {
     state.maxWidth = maxWidth;
+    state.maxHeight = calcHeight(maxWidth, state.naturalWidth, state.naturalHeight);
     state.sizes = calcSet(state.imageCount, state.minWidth, state.maxWidth);
     URL.revokeObjectURL(state.zipURL);
     state.zipURL = "";

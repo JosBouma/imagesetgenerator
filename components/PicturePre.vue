@@ -49,6 +49,7 @@ export default Vue.extend({
       return ret.join(",");
     },
     imgHeight() {
+      console.log(this.$store.state.maxHeight);
       return this.$store.state.maxHeight;
     }
   },
