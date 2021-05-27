@@ -1,8 +1,8 @@
 <template>
   <pre class="pre">
 &lt;picture&gt;
-  &lt;source srcset=&quot;{{ setSrcWebp }}&quot; type=&quot;image/webp&quot;&gt;
-  &lt;source srcset=&quot;{{ setSrcJpeg }}&quot; type=&quot;image/jpeg&quot;&gt;
+  &lt;source sizes=&quot;(max-width: {{ maxWidth }}px) 100vw, {{ maxWidth }}px&quot; srcset=&quot;{{ setSrcWebp }}&quot; type=&quot;image/webp&quot;&gt;
+  &lt;source sizes=&quot;(max-width: {{ maxWidth }}px) 100vw, {{ maxWidth }}px&quot; srcset=&quot;{{ setSrcJpeg }}&quot; type=&quot;image/jpeg&quot;&gt;
   &lt;img alt=&quot;&quot; loading=&quot;lazy&quot; width=&quot;{{ imgWidth }}&quot; height=&quot;{{ imgHeight() }}&quot; sizes=&quot;(max-width: {{ maxWidth }}px) 100vw, {{ maxWidth }}px&quot; src=&quot;{{ folderPrefix }}{{ filePrefix }}{{ imageCount }}.jpg&quot;&gt;
 &lt;/picture&gt;
   </pre>
